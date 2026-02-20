@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Overview
 
-## Getting Started
+This repository is a Next.js 13+ project (App Router) using TypeScript and Tailwind CSS. It contains a responsive site with a hero banner, video backgrounds, feature sections, and UI components.
 
-First, run the development server:
+**Key features:**
+- Responsive, accessible components
+- Background video sections (autoplay, muted, loop)
+- Tailwind CSS for utility-first styling
+
+---
+
+## Tech Stack
+
+- Next.js 13+ (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+- ESLint
+
+Specific versions are in `package.json`.
+
+---
+
+## Setup Instructions
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Notes:
+- If you use `pnpm` or `yarn`, substitute the package manager commands.
+- The project uses static media placed under `/public` (e.g., `/public/videos`).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Folder Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Top-level layout (truncated):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+/
+├─ app/
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  └─ page.tsx
+├─ components/
+│  ├─ Navbar.tsx
+│  ├─ HeroBanner.tsx
+│  ├─ FeatureSection.tsx
+│  └─ OurJourney.tsx
+├─ public/
+│  └─ videos/
+├─ package.json
+├─ tailwind.config.js (if present)
+└─ tsconfig.json
+```
 
-## Deploy on Vercel
+Adjust paths as your project grows.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment Instructions
+
+Recommended: deploy on Vercel for optimal Next.js support.
+
+1. Push your repository to GitHub.
+2. Import the repo on Vercel (https://vercel.com/new).
+3. Use default build settings (`npm run build`, `npm start` or Vercel's defaults). Vercel auto-detects Next.js projects.
+
+Manual (server):
+
+```bash
+npm run build
+npx next start -p 3000
+```
+
+Environment variables: add any required env vars in Vercel dashboard or your hosting provider.
+
+---
+
+## Troubleshooting
+
+- If video doesn't autoplay on mobile, ensure `muted` and `playsInline` are present on the `<video>` element.
+- If Tailwind classes are not applying, verify `globals.css` includes Tailwind directives and `tailwind.config.js` is correctly set.
+- To debug build issues, run `npm run build` and inspect the error traces.
+
+---
+
+If you want, I can also:
+- Add detailed Tailwind/Ts/Eslint setup steps
+- Create a `deploy` script for common hosts
+- Add CI configuration (GitHub Actions)
